@@ -33,6 +33,9 @@ export class CollectionService {
   /**
    * add  item in collection
    */
+  public add(item: Item): void {
+    this.collection.push(item);
+  }
 
   /**
    * update item in collection
