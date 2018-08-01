@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '',
   redirectTo: '/login',
   pathMatch: 'full'
-  }
+  },
+  {
+    path: 'items',
+    loadChildren: './items/items.module#ItemsModule',
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule',
+  },
 ];
 
 @NgModule({
@@ -13,7 +21,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: false
+        enableTracing: false,
+        preloadingStrategy: PreloadAllModules
       }
     )
   ],
