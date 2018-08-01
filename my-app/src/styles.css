@@ -11,3 +11,9 @@
 .state-livree {
   color: rgb(40, 143, 14);
 }
+
+body .navbar-light .navbar-nav .nav-link.active {
+  color: rgb(12, 116, 177);
+}
+
+
