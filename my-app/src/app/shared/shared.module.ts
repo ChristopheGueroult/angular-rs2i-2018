@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+// external librairies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IconsModule } from '../icons/icons.module';
+
 
 import { NavComponent } from './components/nav/nav.component';
 import { ItemComponent } from './components/item/item.component';
@@ -17,7 +20,8 @@ import { FormComponent } from './components/form/form.component';
     CommonModule,
     NgbModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    IconsModule
   ],
   declarations: [NavComponent, ItemComponent, CapitalizePipe, FilterByStatePipe, StateDirective, FormComponent],
   exports: [NavComponent, ItemComponent, FilterByStatePipe, FormComponent]
