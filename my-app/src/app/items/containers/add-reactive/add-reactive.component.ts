@@ -1,3 +1,4 @@
+import { DateService } from './../../../core/services/date.service';
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '../../../core/services/collection.service';
 import { Router } from '@angular/router';
@@ -12,7 +13,8 @@ export class AddReactiveComponent implements OnInit {
 
   constructor(
     private collectionService: CollectionService,
-    private router: Router
+    private router: Router,
+    private dateService: DateService,
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class AddReactiveComponent implements OnInit {
 
   public add(item: Item): void {
     console.log(item);
+    item.deliveryDate = this.dateService.convertDateToIso(item);
     this.collectionService.add(item);
     this.router.navigate(['items/list']);
   }

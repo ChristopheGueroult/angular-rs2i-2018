@@ -28,6 +28,20 @@ export class ItemComponent implements OnInit {
     this.item.state = state;
     // update item using collectionService in database
     this.collectionService.update(this.item);
+    // this.collectionService.update(item).subscribe((data) => {
+    //   if (data) {
+    //     data.state = item.state;
+    //   }
+    // });
+  }
+
+  public delete(): void {
+    this.collectionService.delete(this.item);
+    // this.collectionService.delete(item).subscribe((data) => {
+    //   if (data ) {
+    //     msg to user
+    //   }
+    // })
   }
 
 }

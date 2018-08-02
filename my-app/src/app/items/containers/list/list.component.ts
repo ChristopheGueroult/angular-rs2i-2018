@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { CollectionService } from '../../../core/services/collection.service';
 import { AbstractComponent } from '../abstract/abstract.component';
@@ -19,5 +19,7 @@ export class ListComponent extends AbstractComponent implements OnInit {
   ngOnInit() {
     console.log('surcharge ngOnInit de class mère');
   }
+
+
 
 }

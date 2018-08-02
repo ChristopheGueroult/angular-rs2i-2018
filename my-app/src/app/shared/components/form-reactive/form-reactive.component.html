@@ -1,27 +1,34 @@
 <div class="container">
-    <form novalidate (ngSubmit)="process()" [formGroup]="form">
+  <form novalidate (ngSubmit)="process()" [formGroup]="form">
 
-      <div class="form-group">
-        <input formControlName="name" type="text" class="form-control" placeholder="Enter full name">
-        <div class="alert alert-danger" *ngIf="isError('name')">Champs invalide</div>
+    <div class="form-group">
+      <input formControlName="name" type="text" class="form-control" placeholder="Enter full name">
+      <div class="alert alert-danger" *ngIf="isError('name')">Champs invalide</div>
+    </div>
+
+    <div class="form-group">
+      <input formControlName="reference" type="text" class="form-control" placeholder="Enter référence">
+      <div class="alert alert-danger" *ngIf="isError('reference')">Champ invalide</div>
+    </div>
+
+    <div class="form-group">
+      <select formControlName="state" class="form-control">
+        <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="deliveryDate"  ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <img src="./assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;">
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <input formControlName="reference" type="text" class="form-control" placeholder="Enter référence">
-        <div class="alert alert-danger" *ngIf="isError('reference')">Champ invalide</div>
-      </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
 
-      <div class="form-group">
-        <select formControlName="state" class="form-control">
-          <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <input formControlName="deliveryDate" type="date" class="form-control" placeholder="Delivery Date">
-      </div>
-
-      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
-
-    </form>
-  </div>
+  </form>
+</div>
