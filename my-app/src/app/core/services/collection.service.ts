@@ -65,4 +65,10 @@ export class CollectionService {
       .catch(error => console.log(error));
     // return this.http.delete<Item>(url, item, option);
   }
+
+  // get data on item
+  getItem(id: string): Observable<Item> {
+    const item = this.afs.doc<Item>(`collection/${id}`).valueChanges();
+    return item;
+  }
 }

@@ -4,7 +4,7 @@
     <button class="btn btn-danger float-right" (click)="delete()">
       <fa-icon [icon]="faTrashAlt"></fa-icon>
     </button>
-    <button class="btn btn-info float-right">
+    <button class="btn btn-info float-right" [routerLink]="['/items/edit', item.id]">
       <fa-icon [icon]="faPenSquare"></fa-icon>
     </button>
   </div>

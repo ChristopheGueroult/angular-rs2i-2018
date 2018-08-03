@@ -1,0 +1,24 @@
+<div class="container">
+  <form novalidate (ngSubmit)="process()" [formGroup]="form">
+
+    <div class="form-group">
+      <input formControlName="login" type="text" class="form-control" placeholder="Enter your login my friend">
+    </div>
+
+    <div class="form-group">
+
+      <div class="input-group">
+        <input formControlName="pass" type="password" class="form-control" placeholder="Enter your password my friend" [attr.type]="type">
+        <div class="input-group-append">
+          <span class="input-group-text" (click)="toggle()">
+              <fa-icon [icon]="faEye"></fa-icon>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="alert alert-danger" *ngIf="msg | async; let message">{{ message }}</div>
+  </form>
+</div>
