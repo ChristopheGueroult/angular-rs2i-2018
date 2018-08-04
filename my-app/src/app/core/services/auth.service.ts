@@ -12,7 +12,7 @@ export class AuthService {
   private itemsCollection: AngularFirestoreCollection<User>;
   private users$: Observable<User[]>;
   public connect$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  public user: User;
+  public user$: BehaviorSubject<User> = new BehaviorSubject(null);
   public msg$: BehaviorSubject<string> = new BehaviorSubject(null);
   constructor(
     private afs: AngularFirestore,
@@ -26,7 +26,7 @@ export class AuthService {
     this.users$.subscribe((data) => {
       if (data.length > 0) {
         console.log(data);
-        this.user = data[0];
+        this.user$.next(data[0]);
         this.connect$.next(true);
         this.router.navigate(['/home']);
       } else {
